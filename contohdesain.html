@@ -1,466 +1,845 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>M.REYHAN ALFAHREZI — Web Developer &amp; Security Specialist</title>
-<!-- High-End Typography Google Fonts: Plus Jakarta Sans, Newsreader, JetBrains Mono -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS v3 with Plugins -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            serif: ['"Newsreader"', 'Georgia', 'serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>M.REYHAN ALFAHREZI — Web Developer &amp; Security Specialist</title>
+    <!-- High-End Typography Google Fonts: Plus Jakarta Sans, Newsreader, JetBrains Mono -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS v3 with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [
+                '"Plus Jakarta Sans"',
+                "-apple-system",
+                "BlinkMacSystemFont",
+                "sans-serif",
+              ],
+              serif: ['"Newsreader"', "Georgia", "serif"],
+              mono: ['"JetBrains Mono"', "monospace"],
+            },
+            colors: {
+              canvas: "#F6F6F4",
+              surface: "#FFFFFF",
+              ink: "#111215",
+              muted: "#52525B",
+              borderline: "#E5E5E2",
+              subtle: "#EBEBE8",
+            },
+            letterSpacing: {
+              widest: ".22em",
+              extreme: ".32em",
+              tighter: "-0.04em",
+              tight: "-0.025em",
+            },
           },
-          colors: {
-            canvas: '#F6F6F4',
-            surface: '#FFFFFF',
-            ink: '#111215',
-            muted: '#52525B',
-            borderline: '#E5E5E2',
-            subtle: '#EBEBE8',
-          },
-          letterSpacing: {
-            widest: '.22em',
-            extreme: '.32em',
-            tighter: '-0.04em',
-            tight: '-0.025em',
-          }
-        }
-      }
-    }
-  </script>
-<!-- Typography & Global Surface Styles -->
-<style data-purpose="typography">
-    body {
-      background-color: #F6F6F4;
-      color: #111215;
-      font-feature-settings: "cv02", "cv03", "cv04", "cv11", "kern";
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-    
-    /* Architectural precise wireframe outline lettering */
-    .outline-text {
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(17, 18, 21, 0.14);
-      user-select: none;
-      pointer-events: none;
-      letter-spacing: -0.04em;
-    }
-
-    ::selection {
-      background: #111215;
-      color: #FFFFFF;
-    }
-  </style>
-<!-- Glassmorphism & Visual Effects -->
-<style data-purpose="glass-effects">
-    .glass-nav {
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      box-shadow: 0 16px 36px -12px rgba(17, 18, 21, 0.05);
-    }
-    
-    .glass-card {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.04);
-    }
-
-    .glass-ribbon {
-      background: linear-gradient(108deg, rgba(255, 255, 255, 0.35) 0%, rgba(220, 230, 242, 0.25) 45%, rgba(240, 245, 255, 0.4) 100%);
-      backdrop-filter: blur(10px) contrast(105%);
-      -webkit-backdrop-filter: blur(10px) contrast(105%);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 15px 35px rgba(20, 30, 50, 0.04);
-    }
-
-    .noise-bg {
-      background-image: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.92) 0%, rgba(246,246,244,0.65) 80%);
-    }
-  </style>
-</head>
-<body class="selection:bg-ink selection:text-white noise-bg">
-<!-- BEGIN: FloatingNavbar -->
-<!-- Top centered floating pill navbar with refined monograph serif & clean mono -->
-<header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4" data-purpose="floating-header">
-<nav class="glass-nav rounded-full px-5 md:px-7 py-3 w-full max-w-4xl flex items-center justify-between transition-all duration-300">
-<!-- Brand Monogram & Name -->
-<a class="flex items-center gap-3 group" href="#">
-<span class="font-serif italic font-normal text-xl tracking-tight text-ink group-hover:opacity-75 transition-opacity">RA</span>
-<span class="text-[11px] font-mono font-medium uppercase tracking-[0.2em] text-neutral-800 hidden sm:inline-block">M.REYHAN ALFAHREZI</span>
-</a>
-<!-- Center Links -->
-<ul class="flex items-center gap-6 md:gap-9 text-[11px] font-mono tracking-[0.2em] text-muted uppercase">
-<li><a class="hover:text-ink transition-colors duration-150" href="#work">WORK</a></li>
-<li><a class="hover:text-ink transition-colors duration-150" href="#about">ABOUT</a></li>
-<li><a class="hover:text-ink transition-colors duration-150" href="#skills">SKILLS</a></li>
-<li><a class="hover:text-ink transition-colors duration-150" href="#contact">CONTACT</a></li>
-</ul>
-<!-- Action Pill Button -->
-<div>
-<a class="inline-flex items-center text-[11px] font-mono tracking-[0.16em] uppercase text-ink bg-white/80 hover:bg-white border border-black/10 hover:border-black/25 rounded-full px-4 py-2 transition-all duration-200 shadow-sm" href="#contact">
-          Hire Me <span class="ml-1.5 opacity-60">→</span>
-</a>
-</div>
-</nav>
-</header>
-<!-- END: FloatingNavbar -->
-<!-- BEGIN: HeroSection -->
-<!-- Layered portrait & geometric editorial outline typography -->
-<section class="relative min-h-screen pt-28 pb-16 flex flex-col justify-between overflow-hidden" data-purpose="hero-section">
-<!-- Background Architectural Lettering (REYHAN / ALFAHREZI) -->
-<div aria-hidden="true" class="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden">
-<div class="outline-text font-sans font-bold text-[13.5vw] leading-[0.88] uppercase tracking-[-0.04em] text-center whitespace-nowrap opacity-65 translate-y-[-2vw]">
-        REYHAN
-      </div>
-<div class="outline-text font-sans font-bold text-[13.5vw] leading-[0.88] uppercase tracking-[-0.04em] text-center whitespace-nowrap opacity-65 translate-y-[1vw]">
-        ALFAHREZI
-      </div>
-</div>
-<!-- Center Hero Portrait from Provided Snapshot -->
-<div class="absolute inset-0 flex items-end justify-center pointer-events-none z-10">
-<div class="relative w-full max-w-2xl h-[85vh] max-h-[820px] flex items-end justify-center">
-<!-- Exact Hero Image Asset Reference from Snapshot -->
-<img alt="M.REYHAN ALFAHREZI — Web Developer &amp; Security Specialist" class="w-full h-full object-cover object-top filter contrast-[1.02] drop-shadow-2xl mix-blend-multiply opacity-95 pointer-events-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsrdJBfoLUFgUfaM7y8tpzrh7VsuStYfoGzWdvd7FE-5a2u1BOmKvHopAFGUgIjmcBqO3OG_tfmnXTvDd8Ri3k59jW3Y55MvyFxjQmFkI8RcP9eVJHVNqjCnOpn06fQva4QTAwSS9JZqyJ48WnFokBqAO6MDP536my0g-3p-lEqd9NvNKOCIqsBRCNEWtOKLY4BM3X_JM9AUlW635rvsHgahXRQMrZiYPBUjy18sganBkhleGVRwfdS9YJw2jpGGoM7A"/>
-<!-- Fluid Prism Glass Wave / Ambient Light Depth Over Lower Section -->
-<div class="glass-ribbon absolute bottom-0 -left-12 -right-12 h-36 md:h-48 rounded-t-[100px] transform -rotate-1 pointer-events-none opacity-80 mix-blend-overlay"></div>
-</div>
-</div>
-<!-- Hero Content Overlay (Interactive Layer) -->
-<div class="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 flex-1 flex flex-col justify-between pt-10">
-<!-- Top Discipline Tags & Status Badge Row -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-<!-- Left: Discipline Header -->
-<div class="md:col-span-4 space-y-2.5">
-<div class="w-8 h-[2px] bg-sky-500 mb-3"></div>
-<p class="text-[11px] font-mono tracking-[0.22em] uppercase text-muted leading-[1.8]">
-            WEB DEVELOPER<br/>
-            SEO<br/>
-            CYBER SECURITY
-          </p>
-</div>
-<!-- Center Spacer for Portrait Alignment -->
-<div class="hidden md:block md:col-span-4"></div>
-<!-- Right: Glass Status Card -->
-<div class="md:col-span-4 flex justify-end">
-<div class="glass-card rounded-2xl p-5 max-w-xs shadow-sm" data-purpose="status-badge">
-<div class="flex items-center gap-2 mb-2">
-<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-<span class="text-[10px] font-mono tracking-[0.2em] uppercase text-ink font-semibold">AVAILABLE FOR WORK</span>
-</div>
-<p class="text-xs text-muted leading-relaxed font-sans font-normal">
-              Building modern, secure and meaningful digital experiences.
-            </p>
-</div>
-</div>
-</div>
-<!-- Bottom Hero Row: Call to Action & Navigation Metadata -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mt-48 md:mt-auto pb-4">
-<!-- Left Buttons & Scroll Indicator -->
-<div class="md:col-span-5 flex flex-col gap-8">
-<div class="flex items-center gap-3">
-<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-white hover:bg-black text-xs font-mono tracking-[0.16em] uppercase transition-all duration-200 shadow-md" href="#work">
-              View Work <span>→</span>
-</a>
-<a class="inline-flex items-center px-6 py-3 rounded-full glass-card hover:bg-white text-ink text-xs font-mono tracking-[0.16em] uppercase transition-all duration-200" href="#contact">
-              Contact
-            </a>
-</div>
-<!-- Editorial Scroll Indicator -->
-<div class="flex items-center gap-3">
-<span class="h-4 w-[1px] bg-ink/40"></span>
-<span class="text-[10px] font-mono tracking-[0.24em] uppercase text-muted">SCROLL DOWN</span>
-</div>
-</div>
-<div class="hidden md:block md:col-span-5"></div>
-<!-- Right Vertical Coordinates / Social Links -->
-<div class="hidden md:flex md:col-span-2 justify-end">
-<div class="flex flex-col items-end space-y-4 text-[10px] font-mono tracking-[0.22em] uppercase text-muted">
-<a class="hover:text-ink transition-colors" href="https://www.instagram.com/reyh_aaannnn" rel="noopener noreferrer" target="_blank">Instagram</a>
-<a class="hover:text-ink transition-colors" href="https://github.com/alfreyhan62" rel="noopener noreferrer" target="_blank">GitHub</a>
-<a class="hover:text-ink transition-colors" href="https://www.linkedin.com/in/reyhan-alfahrezi-842446306" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-<span class="h-6 w-[1px] bg-ink/30 mr-1"></span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- END: HeroSection -->
-<!-- BEGIN: SelectedWorksSection -->
-<!-- Editorial Selected Works featuring real case studies from provided snapshots -->
-<section class="relative py-28 border-t border-borderline/80 bg-surface/50" data-purpose="selected-works" id="work">
-<div class="max-w-7xl mx-auto px-6 md:px-12">
-<!-- Section Header with Catalog Metadata -->
-<div class="flex flex-col md:flex-row md:items-end justify-between pb-12 border-b border-borderline gap-4">
-<div>
-<span class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase">[ REGISTER // 01 ]</span>
-<h2 class="text-3xl md:text-5xl font-sans font-semibold tracking-[-0.03em] leading-tight text-ink mt-2">SELECTED WORKS</h2>
-</div>
-<p class="text-xs font-mono tracking-[0.18em] text-muted uppercase max-w-sm leading-relaxed">
-          CURATED PRODUCTION ARCHITECTURES AND ENTERPRISE REPOSITORIES (2023–2025)
-        </p>
-</div>
-<!-- Works List -->
-<div class="divide-y divide-borderline">
-<!-- Work 01: E-Arsip KAI -->
-<article class="py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center group">
-<div class="lg:col-span-6 space-y-6">
-<div class="flex items-center gap-3">
-<span class="font-mono text-xs uppercase tracking-[0.2em] px-2.5 py-1 rounded bg-black/5 text-ink font-semibold">PROJECT 01</span>
-<span class="font-serif italic text-sm text-neutral-500 font-normal">Enterprise System Architecture</span>
-</div>
-<h3 class="text-2xl md:text-4xl font-sans font-bold tracking-tight text-ink leading-[1.15]">
-              E-ARSIP KAI — DIGITAL ARCHIVE MANAGEMENT
-            </h3>
-<p class="text-[15px] md:text-base text-neutral-600 leading-[1.75] font-sans font-normal">
-              Engineered a high-throughput, secure institutional document management platform for Kereta Api Indonesia (KAI). Implements granular Role-Based Access Control (RBAC), end-to-end document encryption, audit trails, and automated indexing for tens of thousands of classified records.
-            </p>
-<div class="pt-2">
-<span class="block text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-2.5">TECHNICAL STACK</span>
-<div class="flex flex-wrap gap-2 text-[12px] font-mono tracking-wider text-ink">
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">PHP 8.2</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">MYSQL</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">JAVASCRIPT</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">FPDF ENGINE</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">RBAC SECURITY</span>
-</div>
-</div>
-<div class="pt-4">
-<a class="inline-flex items-center gap-2 text-xs font-mono tracking-[0.18em] uppercase text-ink font-medium group-hover:translate-x-1 transition-transform duration-200" href="#contact">
-                EXPLORE SPECIFICATION <span class="text-base">→</span>
-</a>
-</div>
-</div>
-<!-- Mockup Display Image 7 -->
-<div class="lg:col-span-6 overflow-hidden rounded-2xl border border-borderline bg-white shadow-lg p-2 md:p-3 transition-transform duration-500 group-hover:scale-[1.01]">
-<img alt="E-Arsip KAI Enterprise System Interface" class="w-full h-auto rounded-xl object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1Xv5YTXBGJM0uJKXWaAoa_2rrQ2qcWKlrrnExr8IpeKGlwqYpUzGm-ODmdTXRsNF7sNpDORJmfIi0wSTaAw9MYKp0ky2-VvZpKwuXiC-d6KBSAcXR3ecN-T101pxJ5GrsqHcJLDbJ2oyJJAGpZ21T7cAAmuxxI7VDj_1RrQOWmvcKcMnoNXxvmKpl9NL2mBtsuHQMgOV3Hyx-2DF-TffRD_fOoFZYoMbOcWnDgdA94jX-JNjdkPw5Ku_L0"/>
-</div>
-</article>
-<!-- Work 02: Raso Wong Kito -->
-<article class="py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center group">
-<div class="lg:col-span-6 space-y-6 lg:order-2">
-<div class="flex items-center gap-3">
-<span class="font-mono text-xs uppercase tracking-[0.2em] px-2.5 py-1 rounded bg-black/5 text-ink font-semibold">PROJECT 02</span>
-<span class="font-serif italic text-sm text-neutral-500 font-normal">Digital Gastronomy &amp; Archive</span>
-</div>
-<h3 class="text-2xl md:text-4xl font-sans font-bold tracking-tight text-ink leading-[1.15]">
-              RASO WONG KITO — HERITAGE &amp; GASTRONOMY
-            </h3>
-<p class="text-[15px] md:text-base text-neutral-600 leading-[1.75] font-sans font-normal">
-              An editorial culinary archive celebrating South Sumatra's authentic gastronomic culture. Architected with strict semantic HTML5, zero-bloat vanilla scripts, structured JSON-LD schema ontologies for recipe rich snippets, and sub-second Core Web Vitals performance.
-            </p>
-<div class="pt-2">
-<span class="block text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-2.5">TECHNICAL STACK</span>
-<div class="flex flex-wrap gap-2 text-[12px] font-mono tracking-wider text-ink">
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">SEMANTIC HTML5</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">MODERN CSS</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">VANILLA ES6+</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">TECHNICAL SEO</span>
-<span class="px-3 py-1 rounded-full border border-borderline bg-canvas">SCHEMA.ORG</span>
-</div>
-</div>
-<div class="pt-4">
-<a class="inline-flex items-center gap-2 text-xs font-mono tracking-[0.18em] uppercase text-ink font-medium group-hover:translate-x-1 transition-transform duration-200" href="#contact">
-                INSPECT ARCHITECTURE <span class="text-base">→</span>
-</a>
-</div>
-</div>
-<!-- Mockup Display Image 6 -->
-<div class="lg:col-span-6 lg:order-1 overflow-hidden rounded-2xl border border-borderline bg-white shadow-lg p-2 md:p-3 transition-transform duration-500 group-hover:scale-[1.01]">
-<img alt="Raso Wong Kito Heritage Platform Showcase" class="w-full h-auto rounded-xl object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1WnQOyJFNqIswp8Qdyo_G-8Q9frnlcZhcaQCD1OO-yQNbXuQRnGRvtjCX0z4ZRqRUspUmrC8AmwF6ok0Q1fdE8AeN0QG8f-6hHEuhU56bogxhwRoU7a8tiGR-yGQ-h5RyNovE38pMN8K28B1EZSnrcZ1CV7wIGe3jEuhvRdXK9qhKOBwiG6Gcu5UZEwha6LgIaN7eItX1e9_iQczV0j5JtXBPTcITlU78OwmxImbMvcpMSdfRCPoPVfoCM"/>
-</div>
-</article>
-</div>
-</div>
-</section>
-<!-- END: SelectedWorksSection -->
-<!-- BEGIN: ManifestoAboutSection -->
-<!-- Manifesto and Core Engineering Principles with Editorial Monograph Serif Typography -->
-<section class="py-28 border-t border-borderline bg-canvas" data-purpose="manifesto-section" id="about">
-<div class="max-w-7xl mx-auto px-6 md:px-12">
-<div class="pb-12 border-b border-borderline">
-<span class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase">[ MANIFESTO // 02 ]</span>
-<h2 class="text-3xl md:text-5xl font-sans font-semibold tracking-[-0.03em] leading-tight text-ink mt-2">PRINCIPLES &amp; BELIEFS</h2>
-</div>
-<!-- High-End Editorial Monograph Statement with Precision Italic Accents -->
-<div class="py-16 md:py-24 max-w-5xl">
-<blockquote class="text-3xl sm:text-4xl md:text-5xl font-serif font-light text-ink leading-[1.25] tracking-tight">
-          "I build <span class="italic font-normal">modern web experiences</span>, digital systems, <span class="italic font-normal">SEO-friendly</span> platforms, and <span class="italic font-normal">defensible secure</span> applications."
-        </blockquote>
-</div>
-<!-- Core Disciplines 3-Column Grid -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-borderline">
-<div class="space-y-3">
-<span class="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">01 // WEB ENGINEERING</span>
-<h4 class="text-base md:text-lg font-sans font-semibold tracking-tight text-ink">Deterministic &amp; Resilient</h4>
-<p class="text-sm text-neutral-600 leading-[1.7] font-sans">
-            Crafting responsive applications with minimal dependencies, exceptional performance metrics, and clean code that scales cleanly across enterprise lifecycles.
-          </p>
-</div>
-<div class="space-y-3">
-<span class="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">02 // SEARCH OPTIMIZATION</span>
-<h4 class="text-base md:text-lg font-sans font-semibold tracking-tight text-ink">Semantic Indexing</h4>
-<p class="text-sm text-neutral-600 leading-[1.7] font-sans">
-            Deep technical SEO implementation from server headers, JSON-LD schemas, to hyper-optimized Core Web Vitals guarantees organic discoverability without artificial tricks.
-          </p>
-</div>
-<div class="space-y-3">
-<span class="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">03 // CYBER SECURITY</span>
-<h4 class="text-base md:text-lg font-sans font-semibold tracking-tight text-ink">Defensive Architecture</h4>
-<p class="text-sm text-neutral-600 leading-[1.7] font-sans">
-            Protecting integrity through strict input sanitization, OWASP mitigation, cryptographic hashing, and hardened access policies from the database to presentation layer.
-          </p>
-</div>
-</div>
-</div>
-</section>
-<!-- END: ManifestoAboutSection -->
-<!-- BEGIN: SkillsMatrixSection -->
-<!-- Tabular Technical Competencies Matrix -->
-<section class="py-24 border-t border-borderline bg-surface/70" data-purpose="skills-matrix" id="skills">
-<div class="max-w-7xl mx-auto px-6 md:px-12">
-<div class="pb-12 border-b border-borderline flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-<div>
-<span class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase">[ INVENTORY // 03 ]</span>
-<h2 class="text-3xl md:text-5xl font-sans font-semibold tracking-[-0.03em] leading-tight text-ink mt-2">TECHNICAL DOMAINS</h2>
-</div>
-<span class="text-xs font-mono uppercase tracking-[0.2em] text-muted">COMPREHENSIVE STACK OVERVIEW</span>
-</div>
-<div class="overflow-x-auto mt-8">
-<table class="w-full text-left border-collapse" id="skills-table">
-<thead>
-<tr class="border-b border-borderline text-[11px] font-mono tracking-[0.22em] text-neutral-400 uppercase">
-<th class="py-4 font-medium">DISCIPLINE</th>
-<th class="py-4 font-medium">PRIMARY STACK &amp; METHODOLOGY</th>
-<th class="py-4 font-medium">COMPETENCE LEVEL</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-borderline font-mono text-xs text-ink">
-<tr class="hover:bg-black/[0.01] transition-colors">
-<td class="py-5 font-semibold font-sans text-sm tracking-tight">Web Development</td>
-<td class="py-5 text-neutral-600 leading-relaxed font-mono">Modern JavaScript (ES6+), PHP 8.x, Tailwind CSS, Semantic HTML5, MySQL, REST APIs</td>
-<td class="py-5 text-ink font-medium">Production Grade</td>
-</tr>
-<tr class="hover:bg-black/[0.01] transition-colors">
-<td class="py-5 font-semibold font-sans text-sm tracking-tight">Technical SEO</td>
-<td class="py-5 text-neutral-600 leading-relaxed font-mono">Core Web Vitals Optimization, Schema.org Markup, XML Sitemaps, Crawl Budget Strategy</td>
-<td class="py-5 text-ink font-medium">Advanced Strategy</td>
-</tr>
-<tr class="hover:bg-black/[0.01] transition-colors">
-<td class="py-5 font-semibold font-sans text-sm tracking-tight">Cyber Security</td>
-<td class="py-5 text-neutral-600 leading-relaxed font-mono">Vulnerability Assessment, OWASP Top 10 Hardening, RBAC, Data Sanitization, Audit Logging</td>
-<td class="py-5 text-ink font-medium">Enterprise Defensive</td>
-</tr>
-<tr class="hover:bg-black/[0.01] transition-colors">
-<td class="py-5 font-semibold font-sans text-sm tracking-tight">Tools &amp; Infrastructure</td>
-<td class="py-5 text-neutral-600 leading-relaxed font-mono">Git, GitHub, Apache/Nginx, Linux Server Administration, Postman, Chrome DevTools</td>
-<td class="py-5 text-ink font-medium">Daily Workflow</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<!-- END: SkillsMatrixSection -->
-<!-- BEGIN: ContactFooterSection -->
-<!-- Editorial Contact and Timestamped Footer -->
-<footer class="py-24 border-t border-borderline bg-ink text-white" data-purpose="contact-footer" id="contact">
-<div class="max-w-7xl mx-auto px-6 md:px-12 space-y-20">
-<!-- Call to Action Banner -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-<div class="lg:col-span-8 space-y-4">
-<span class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase">[ INITIATION // 04 ]</span>
-<h2 class="text-4xl sm:text-5xl md:text-7xl font-sans font-bold tracking-[-0.04em] leading-[0.95] text-white">
-            HAVE A PROJECT<br/>IN MIND?
-          </h2>
-<p class="text-[15px] font-sans text-neutral-400 max-w-lg pt-4 leading-[1.7] font-normal">
-            Open for full-stack engineering contracts, technical SEO audits, and custom system development projects. Let's engineer something meaningful together.
-          </p>
-</div>
-<div class="lg:col-span-4 flex flex-col justify-between h-full pt-4 space-y-6">
-<div>
-<span class="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">DIRECT COMMUNICATION</span>
-<div class="flex items-center gap-3">
-<a class="text-base sm:text-lg font-mono text-white hover:text-neutral-300 transition-colors underline decoration-neutral-600 underline-offset-4 select-all" href="mailto:reyhan.alfahrezi@example.com" id="email-text">reyhan.alfahrezi@example.com</a>
-<button class="text-xs font-mono uppercase px-3 py-1.5 rounded border border-white/20 hover:border-white/60 transition-colors" id="copy-btn" title="Copy Email">
-                Copy
-              </button>
-</div>
-<span class="text-[10px] font-mono text-emerald-400 mt-1 block opacity-0 transition-opacity duration-300" id="copy-feedback">
-              COPIED TO CLIPBOARD
-            </span>
-</div>
-<div class="pt-4">
-<a class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-ink text-xs font-mono uppercase tracking-[0.18em] font-medium hover:bg-neutral-200 transition-colors" href="mailto:reyhan.alfahrezi@example.com">
-              SEND DIRECT DISPATCH <span>→</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Editorial Footer Meta Divider -->
-<div class="pt-12 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-[11px] font-mono tracking-[0.2em] uppercase text-zinc-400">
-<div>
-<span>© 2025 M.REYHAN ALFAHREZI. ALL RIGHTS RESERVED.</span>
-</div>
-<!-- Coordinates and Links -->
-<div class="flex items-center gap-6">
-<a class="hover:text-white transition-colors" href="https://www.instagram.com/reyh_aaannnn" rel="noopener noreferrer" target="_blank">INSTAGRAM</a>
-<a class="hover:text-white transition-colors" href="https://github.com/alfreyhan62" rel="noopener noreferrer" target="_blank">GITHUB</a>
-<a class="hover:text-white transition-colors" href="https://www.linkedin.com/in/reyhan-alfahrezi-842446306" rel="noopener noreferrer" target="_blank">LINKEDIN</a>
-<span class="text-zinc-600">|</span>
-<span class="text-zinc-300" id="live-time">JAKARTA 00:00 WIB</span>
-</div>
-</div>
-</div>
-</footer>
-<!-- END: ContactFooterSection -->
-<!-- Interactive Scripts -->
-<script data-purpose="time-and-copy">
-    // Live Jakarta WIB Time Indicator
-    function updateJakartaTime() {
-      const timeElem = document.getElementById('live-time');
-      if (!timeElem) return;
-      
-      const options = {
-        timeZone: 'Asia/Jakarta',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
+        },
       };
-      const jakartaTime = new Intl.DateTimeFormat([], options).format(new Date());
-      timeElem.textContent = `JAKARTA ${jakartaTime} WIB`;
-    }
-    setInterval(updateJakartaTime, 1000);
-    updateJakartaTime();
+    </script>
+    <!-- Typography & Global Surface Styles -->
+    <style data-purpose="typography">
+      body {
+        background-color: #f6f6f4;
+        color: #111215;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11", "kern";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
 
-    // Copy to Clipboard Feedback
-    const copyBtn = document.getElementById('copy-btn');
-    const feedback = document.getElementById('copy-feedback');
-    if (copyBtn && feedback) {
-      copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText('reyhan.alfahrezi@example.com').then(() => {
-          feedback.style.opacity = '1';
-          copyBtn.textContent = 'COPIED';
-          setTimeout(() => {
-            feedback.style.opacity = '0';
-            copyBtn.textContent = 'COPY';
-          }, 2500);
+      /* Architectural precise wireframe outline lettering */
+      .outline-text {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(17, 18, 21, 0.14);
+        user-select: none;
+        pointer-events: none;
+        letter-spacing: -0.04em;
+      }
+
+      ::selection {
+        background: #111215;
+        color: #ffffff;
+      }
+    </style>
+    <!-- Glassmorphism & Visual Effects -->
+    <style data-purpose="glass-effects">
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        box-shadow: 0 16px 36px -12px rgba(17, 18, 21, 0.05);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.04);
+      }
+
+      .glass-ribbon {
+        background: linear-gradient(
+          108deg,
+          rgba(255, 255, 255, 0.35) 0%,
+          rgba(220, 230, 242, 0.25) 45%,
+          rgba(240, 245, 255, 0.4) 100%
+        );
+        backdrop-filter: blur(10px) contrast(105%);
+        -webkit-backdrop-filter: blur(10px) contrast(105%);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow:
+          inset 0 1px 2px rgba(255, 255, 255, 0.8),
+          0 15px 35px rgba(20, 30, 50, 0.04);
+      }
+
+      .noise-bg {
+        background-image: radial-gradient(
+          circle at 50% 30%,
+          rgba(255, 255, 255, 0.92) 0%,
+          rgba(246, 246, 244, 0.65) 80%
+        );
+      }
+    </style>
+  </head>
+  <body class="selection:bg-ink selection:text-white noise-bg">
+    <!-- BEGIN: FloatingNavbar -->
+    <!-- Top centered floating pill navbar with refined monograph serif & clean mono -->
+    <header
+      class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
+      data-purpose="floating-header"
+    >
+      <nav
+        class="glass-nav rounded-full px-5 md:px-7 py-3 w-full max-w-4xl flex items-center justify-between transition-all duration-300"
+      >
+        <!-- Brand Monogram & Name -->
+        <a class="flex items-center gap-3 group" href="#">
+          <span
+            class="font-serif italic font-normal text-xl tracking-tight text-ink group-hover:opacity-75 transition-opacity"
+            >RA</span
+          >
+          <span
+            class="text-[11px] font-mono font-medium uppercase tracking-[0.2em] text-neutral-800 hidden sm:inline-block"
+            >M.REYHAN ALFAHREZI</span
+          >
+        </a>
+        <!-- Center Links -->
+        <ul
+          class="flex items-center gap-6 md:gap-9 text-[11px] font-mono tracking-[0.2em] text-muted uppercase"
+        >
+          <li>
+            <a
+              class="hover:text-ink transition-colors duration-150"
+              href="#work"
+              >WORK</a
+            >
+          </li>
+          <li>
+            <a
+              class="hover:text-ink transition-colors duration-150"
+              href="#about"
+              >ABOUT</a
+            >
+          </li>
+          <li>
+            <a
+              class="hover:text-ink transition-colors duration-150"
+              href="#skills"
+              >SKILLS</a
+            >
+          </li>
+          <li>
+            <a
+              class="hover:text-ink transition-colors duration-150"
+              href="#contact"
+              >CONTACT</a
+            >
+          </li>
+        </ul>
+        <!-- Action Pill Button -->
+        <div>
+          <a
+            class="inline-flex items-center text-[11px] font-mono tracking-[0.16em] uppercase text-ink bg-white/80 hover:bg-white border border-black/10 hover:border-black/25 rounded-full px-4 py-2 transition-all duration-200 shadow-sm"
+            href="#contact"
+          >
+            Hire Me <span class="ml-1.5 opacity-60">→</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <!-- END: FloatingNavbar -->
+    <!-- BEGIN: HeroSection -->
+    <!-- Layered portrait & geometric editorial outline typography -->
+    <section
+      class="relative min-h-screen pt-28 pb-16 flex flex-col justify-between overflow-hidden"
+      data-purpose="hero-section"
+    >
+      <!-- Background Architectural Lettering (REYHAN / ALFAHREZI) -->
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none z-0 overflow-hidden"
+      >
+        <div
+          class="outline-text font-sans font-bold text-[13.5vw] leading-[0.88] uppercase tracking-[-0.04em] text-center whitespace-nowrap opacity-65 translate-y-[-2vw]"
+        >
+          REYHAN
+        </div>
+        <div
+          class="outline-text font-sans font-bold text-[13.5vw] leading-[0.88] uppercase tracking-[-0.04em] text-center whitespace-nowrap opacity-65 translate-y-[1vw]"
+        >
+          ALFAHREZI
+        </div>
+      </div>
+      <!-- Center Hero Portrait from Provided Snapshot -->
+      <div
+        class="absolute inset-0 flex items-end justify-center pointer-events-none z-10"
+      >
+        <div
+          class="relative w-full max-w-2xl h-[85vh] max-h-[820px] flex items-end justify-center"
+        >
+          <!-- Exact Hero Image Asset Reference from Snapshot -->
+          <img
+            alt="M.REYHAN ALFAHREZI — Web Developer &amp; Security Specialist"
+            class="w-full h-full object-cover object-top filter contrast-[1.02] drop-shadow-2xl mix-blend-multiply opacity-95 pointer-events-auto"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsrdJBfoLUFgUfaM7y8tpzrh7VsuStYfoGzWdvd7FE-5a2u1BOmKvHopAFGUgIjmcBqO3OG_tfmnXTvDd8Ri3k59jW3Y55MvyFxjQmFkI8RcP9eVJHVNqjCnOpn06fQva4QTAwSS9JZqyJ48WnFokBqAO6MDP536my0g-3p-lEqd9NvNKOCIqsBRCNEWtOKLY4BM3X_JM9AUlW635rvsHgahXRQMrZiYPBUjy18sganBkhleGVRwfdS9YJw2jpGGoM7A"
+          />
+          <!-- Fluid Prism Glass Wave / Ambient Light Depth Over Lower Section -->
+          <div
+            class="glass-ribbon absolute bottom-0 -left-12 -right-12 h-36 md:h-48 rounded-t-[100px] transform -rotate-1 pointer-events-none opacity-80 mix-blend-overlay"
+          ></div>
+        </div>
+      </div>
+      <!-- Hero Content Overlay (Interactive Layer) -->
+      <div
+        class="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 flex-1 flex flex-col justify-between pt-10"
+      >
+        <!-- Top Discipline Tags & Status Badge Row -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <!-- Left: Discipline Header -->
+          <div class="md:col-span-4 space-y-2.5">
+            <div class="w-8 h-[2px] bg-sky-500 mb-3"></div>
+            <p
+              class="text-[11px] font-mono tracking-[0.22em] uppercase text-muted leading-[1.8]"
+            >
+              WEB DEVELOPER<br />
+              SEO<br />
+              CYBER SECURITY
+            </p>
+          </div>
+          <!-- Center Spacer for Portrait Alignment -->
+          <div class="hidden md:block md:col-span-4"></div>
+          <!-- Right: Glass Status Card -->
+          <div class="md:col-span-4 flex justify-end">
+            <div
+              class="glass-card rounded-2xl p-5 max-w-xs shadow-sm"
+              data-purpose="status-badge"
+            >
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+                ></span>
+                <span
+                  class="text-[10px] font-mono tracking-[0.2em] uppercase text-ink font-semibold"
+                  >AVAILABLE FOR WORK</span
+                >
+              </div>
+              <p
+                class="text-xs text-muted leading-relaxed font-sans font-normal"
+              >
+                Building modern, secure and meaningful digital experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Hero Row: Call to Action & Navigation Metadata -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mt-48 md:mt-auto pb-4"
+        >
+          <!-- Left Buttons & Scroll Indicator -->
+          <div class="md:col-span-5 flex flex-col gap-8">
+            <div class="flex items-center gap-3">
+              <a
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-white hover:bg-black text-xs font-mono tracking-[0.16em] uppercase transition-all duration-200 shadow-md"
+                href="#work"
+              >
+                View Work <span>→</span>
+              </a>
+              <a
+                class="inline-flex items-center px-6 py-3 rounded-full glass-card hover:bg-white text-ink text-xs font-mono tracking-[0.16em] uppercase transition-all duration-200"
+                href="#contact"
+              >
+                Contact
+              </a>
+            </div>
+            <!-- Editorial Scroll Indicator -->
+            <div class="flex items-center gap-3">
+              <span class="h-4 w-[1px] bg-ink/40"></span>
+              <span
+                class="text-[10px] font-mono tracking-[0.24em] uppercase text-muted"
+                >SCROLL DOWN</span
+              >
+            </div>
+          </div>
+          <div class="hidden md:block md:col-span-5"></div>
+          <!-- Right Vertical Coordinates / Social Links -->
+          <div class="hidden md:flex md:col-span-2 justify-end">
+            <div
+              class="flex flex-col items-end space-y-4 text-[10px] font-mono tracking-[0.22em] uppercase text-muted"
+            >
+              <a
+                class="hover:text-ink transition-colors"
+                href="https://www.instagram.com/reyh_aaannnn"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Instagram</a
+              >
+              <a
+                class="hover:text-ink transition-colors"
+                href="https://github.com/alfreyhan62"
+                rel="noopener noreferrer"
+                target="_blank"
+                >GitHub</a
+              >
+              <a
+                class="hover:text-ink transition-colors"
+                href="https://www.linkedin.com/in/reyhan-alfahrezi-842446306"
+                rel="noopener noreferrer"
+                target="_blank"
+                >LinkedIn</a
+              >
+              <span class="h-6 w-[1px] bg-ink/30 mr-1"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: HeroSection -->
+    <!-- BEGIN: SelectedWorksSection -->
+    <!-- Editorial Selected Works featuring real case studies from provided snapshots -->
+    <section
+      class="relative py-28 border-t border-borderline/80 bg-surface/50"
+      data-purpose="selected-works"
+      id="work"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <!-- Section Header with Catalog Metadata -->
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between pb-12 border-b border-borderline gap-4"
+        >
+          <div>
+            <span
+              class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase"
+              >[ REGISTER // 01 ]</span
+            >
+            <h2
+              class="text-3xl md:text-5xl font-sans font-semibold tracking-[-0.03em] leading-tight text-ink mt-2"
+            >
+              SELECTED WORKS
+            </h2>
+          </div>
+          <p
+            class="text-xs font-mono tracking-[0.18em] text-muted uppercase max-w-sm leading-relaxed"
+          >
+            CURATED PRODUCTION ARCHITECTURES AND ENTERPRISE REPOSITORIES
+            (2023–2025)
+          </p>
+        </div>
+        <!-- Works List -->
+        <div class="divide-y divide-borderline">
+          <!-- Work 01: E-Arsip KAI -->
+          <article
+            class="py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center group"
+          >
+            <div class="lg:col-span-6 space-y-6">
+              <div class="flex items-center gap-3">
+                <span
+                  class="font-mono text-xs uppercase tracking-[0.2em] px-2.5 py-1 rounded bg-black/5 text-ink font-semibold"
+                  >PROJECT 01</span
+                >
+                <span
+                  class="font-serif italic text-sm text-neutral-500 font-normal"
+                  >Enterprise System Architecture</span
+                >
+              </div>
+              <h3
+                class="text-2xl md:text-4xl font-sans font-bold tracking-tight text-ink leading-[1.15]"
+              >
+                E-ARSIP KAI — DIGITAL ARCHIVE MANAGEMENT
+              </h3>
+              <p
+                class="text-[15px] md:text-base text-neutral-600 leading-[1.75] font-sans font-normal"
+              >
+                Engineered a high-throughput, secure institutional document
+                management platform for Kereta Api Indonesia (KAI). Implements
+                granular Role-Based Access Control (RBAC), end-to-end document
+                encryption, audit trails, and automated indexing for tens of
+                thousands of classified records.
+              </p>
+              <div class="pt-2">
+                <span
+                  class="block text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-2.5"
+                  >TECHNICAL STACK</span
+                >
+                <div
+                  class="flex flex-wrap gap-2 text-[12px] font-mono tracking-wider text-ink"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >PHP 8.2</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >MYSQL</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >JAVASCRIPT</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >FPDF ENGINE</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >RBAC SECURITY</span
+                  >
+                </div>
+              </div>
+              <div class="pt-4">
+                <a
+                  class="inline-flex items-center gap-2 text-xs font-mono tracking-[0.18em] uppercase text-ink font-medium group-hover:translate-x-1 transition-transform duration-200"
+                  href="#contact"
+                >
+                  EXPLORE SPECIFICATION <span class="text-base">→</span>
+                </a>
+              </div>
+            </div>
+            <!-- Mockup Display Image 7 -->
+            <div
+              class="lg:col-span-6 overflow-hidden rounded-2xl border border-borderline bg-white shadow-lg p-2 md:p-3 transition-transform duration-500 group-hover:scale-[1.01]"
+            >
+              <img
+                alt="E-Arsip KAI Enterprise System Interface"
+                class="w-full h-auto rounded-xl object-cover"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida/AEtjO1Xv5YTXBGJM0uJKXWaAoa_2rrQ2qcWKlrrnExr8IpeKGlwqYpUzGm-ODmdTXRsNF7sNpDORJmfIi0wSTaAw9MYKp0ky2-VvZpKwuXiC-d6KBSAcXR3ecN-T101pxJ5GrsqHcJLDbJ2oyJJAGpZ21T7cAAmuxxI7VDj_1RrQOWmvcKcMnoNXxvmKpl9NL2mBtsuHQMgOV3Hyx-2DF-TffRD_fOoFZYoMbOcWnDgdA94jX-JNjdkPw5Ku_L0"
+              />
+            </div>
+          </article>
+          <!-- Work 02: Raso Wong Kito -->
+          <article
+            class="py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center group"
+          >
+            <div class="lg:col-span-6 space-y-6 lg:order-2">
+              <div class="flex items-center gap-3">
+                <span
+                  class="font-mono text-xs uppercase tracking-[0.2em] px-2.5 py-1 rounded bg-black/5 text-ink font-semibold"
+                  >PROJECT 02</span
+                >
+                <span
+                  class="font-serif italic text-sm text-neutral-500 font-normal"
+                  >Digital Gastronomy &amp; Archive</span
+                >
+              </div>
+              <h3
+                class="text-2xl md:text-4xl font-sans font-bold tracking-tight text-ink leading-[1.15]"
+              >
+                RASO WONG KITO — HERITAGE &amp; GASTRONOMY
+              </h3>
+              <p
+                class="text-[15px] md:text-base text-neutral-600 leading-[1.75] font-sans font-normal"
+              >
+                An editorial culinary archive celebrating South Sumatra's
+                authentic gastronomic culture. Architected with strict semantic
+                HTML5, zero-bloat vanilla scripts, structured JSON-LD schema
+                ontologies for recipe rich snippets, and sub-second Core Web
+                Vitals performance.
+              </p>
+              <div class="pt-2">
+                <span
+                  class="block text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-2.5"
+                  >TECHNICAL STACK</span
+                >
+                <div
+                  class="flex flex-wrap gap-2 text-[12px] font-mono tracking-wider text-ink"
+                >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >SEMANTIC HTML5</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >MODERN CSS</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >VANILLA ES6+</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >TECHNICAL SEO</span
+                  >
+                  <span
+                    class="px-3 py-1 rounded-full border border-borderline bg-canvas"
+                    >SCHEMA.ORG</span
+                  >
+                </div>
+              </div>
+              <div class="pt-4">
+                <a
+                  class="inline-flex items-center gap-2 text-xs font-mono tracking-[0.18em] uppercase text-ink font-medium group-hover:translate-x-1 transition-transform duration-200"
+                  href="#contact"
+                >
+                  INSPECT ARCHITECTURE <span class="text-base">→</span>
+                </a>
+              </div>
+            </div>
+            <!-- Mockup Display Image 6 -->
+            <div
+              class="lg:col-span-6 lg:order-1 overflow-hidden rounded-2xl border border-borderline bg-white shadow-lg p-2 md:p-3 transition-transform duration-500 group-hover:scale-[1.01]"
+            >
+              <img
+                alt="Raso Wong Kito Heritage Platform Showcase"
+                class="w-full h-auto rounded-xl object-cover"
+                loading="lazy"
+                src="https://lh3.googleusercontent.com/aida/AEtjO1WnQOyJFNqIswp8Qdyo_G-8Q9frnlcZhcaQCD1OO-yQNbXuQRnGRvtjCX0z4ZRqRUspUmrC8AmwF6ok0Q1fdE8AeN0QG8f-6hHEuhU56bogxhwRoU7a8tiGR-yGQ-h5RyNovE38pMN8K28B1EZSnrcZ1CV7wIGe3jEuhvRdXK9qhKOBwiG6Gcu5UZEwha6LgIaN7eItX1e9_iQczV0j5JtXBPTcITlU78OwmxImbMvcpMSdfRCPoPVfoCM"
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- END: SelectedWorksSection -->
+    <!-- BEGIN: ManifestoAboutSection -->
+    <!-- Manifesto and Core Engineering Principles with Editorial Monograph Serif Typography -->
+    <section
+      class="py-28 border-t border-borderline bg-canvas"
+      data-purpose="manifesto-section"
+      id="about"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="pb-12 border-b border-borderline">
+          <span
+            class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase"
+            >[ MANIFESTO // 02 ]</span
+          >
+          <h2
+            class="text-3xl md:text-5xl font-sans font-semibold tracking-[-0.03em] leading-tight text-ink mt-2"
+          >
+            PRINCIPLES &amp; BELIEFS
+          </h2>
+        </div>
+        <!-- High-End Editorial Monograph Statement with Precision Italic Accents -->
+        <div class="py-16 md:py-24 max-w-5xl">
+          <blockquote
+            class="text-3xl sm:text-4xl md:text-5xl font-serif font-light text-ink leading-[1.25] tracking-tight"
+          >
+            "I build
+            <span class="italic font-normal">modern web experiences</span>,
+            digital systems,
+            <span class="italic font-normal">SEO-friendly</span> platforms, and
+            <span class="italic font-normal">defensible secure</span>
+            applications."
+          </blockquote>
+        </div>
+        <!-- Core Disciplines 3-Column Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-borderline"
+        >
+          <div class="space-y-3">
+            <span
+              class="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400"
+              >01 // WEB ENGINEERING</span
+            >
+            <h4
+              class="text-base md:text-lg font-sans font-semibold tracking-tight text-ink"
+            >
+              Deterministic &amp; Resilient
+            </h4>
+            <p class="text-sm text-neutral-600 leading-[1.7] font-sans">
+              Crafting responsive applications with minimal dependencies,
+              exceptional performance metrics, and clean code that scales
+              cleanly across enterprise lifecycles.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <span
+              class="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400"
+              >02 // SEARCH OPTIMIZATION</span
+            >
+            <h4
+              class="text-base md:text-lg font-sans font-semibold tracking-tight text-ink"
+            >
+              Semantic Indexing
+            </h4>
+            <p class="text-sm text-neutral-600 leading-[1.7] font-sans">
+              Deep technical SEO implementation from server headers, JSON-LD
+              schemas, to hyper-optimized Core Web Vitals guarantees organic
+              discoverability without artificial tricks.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <span
+              class="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400"
+              >03 // CYBER SECURITY</span
+            >
+            <h4
+              class="text-base md:text-lg font-sans font-semibold tracking-tight text-ink"
+            >
+              Defensive Architecture
+            </h4>
+            <p class="text-sm text-neutral-600 leading-[1.7] font-sans">
+              Protecting integrity through strict input sanitization, OWASP
+              mitigation, cryptographic hashing, and hardened access policies
+              from the database to presentation layer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: ManifestoAboutSection -->
+    <!-- BEGIN: SkillsMatrixSection -->
+    <!-- Tabular Technical Competencies Matrix -->
+    <section
+      class="py-24 border-t border-borderline bg-surface/70"
+      data-purpose="skills-matrix"
+      id="skills"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div
+          class="pb-12 border-b border-borderline flex flex-col sm:flex-row sm:items-end justify-between gap-4"
+        >
+          <div>
+            <span
+              class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase"
+              >[ INVENTORY // 03 ]</span
+            >
+            <h2
+              class="text-3xl md:text-5xl font-sans font-semibold tracking-[-0.03em] leading-tight text-ink mt-2"
+            >
+              TECHNICAL DOMAINS
+            </h2>
+          </div>
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-muted"
+            >COMPREHENSIVE STACK OVERVIEW</span
+          >
+        </div>
+        <div class="overflow-x-auto mt-8">
+          <table class="w-full text-left border-collapse" id="skills-table">
+            <thead>
+              <tr
+                class="border-b border-borderline text-[11px] font-mono tracking-[0.22em] text-neutral-400 uppercase"
+              >
+                <th class="py-4 font-medium">DISCIPLINE</th>
+                <th class="py-4 font-medium">
+                  PRIMARY STACK &amp; METHODOLOGY
+                </th>
+                <th class="py-4 font-medium">COMPETENCE LEVEL</th>
+              </tr>
+            </thead>
+            <tbody
+              class="divide-y divide-borderline font-mono text-xs text-ink"
+            >
+              <tr class="hover:bg-black/[0.01] transition-colors">
+                <td class="py-5 font-semibold font-sans text-sm tracking-tight">
+                  Web Development
+                </td>
+                <td class="py-5 text-neutral-600 leading-relaxed font-mono">
+                  Modern JavaScript (ES6+), PHP 8.x, Tailwind CSS, Semantic
+                  HTML5, MySQL, REST APIs
+                </td>
+                <td class="py-5 text-ink font-medium">Production Grade</td>
+              </tr>
+              <tr class="hover:bg-black/[0.01] transition-colors">
+                <td class="py-5 font-semibold font-sans text-sm tracking-tight">
+                  Technical SEO
+                </td>
+                <td class="py-5 text-neutral-600 leading-relaxed font-mono">
+                  Core Web Vitals Optimization, Schema.org Markup, XML Sitemaps,
+                  Crawl Budget Strategy
+                </td>
+                <td class="py-5 text-ink font-medium">Advanced Strategy</td>
+              </tr>
+              <tr class="hover:bg-black/[0.01] transition-colors">
+                <td class="py-5 font-semibold font-sans text-sm tracking-tight">
+                  Cyber Security
+                </td>
+                <td class="py-5 text-neutral-600 leading-relaxed font-mono">
+                  Vulnerability Assessment, OWASP Top 10 Hardening, RBAC, Data
+                  Sanitization, Audit Logging
+                </td>
+                <td class="py-5 text-ink font-medium">Enterprise Defensive</td>
+              </tr>
+              <tr class="hover:bg-black/[0.01] transition-colors">
+                <td class="py-5 font-semibold font-sans text-sm tracking-tight">
+                  Tools &amp; Infrastructure
+                </td>
+                <td class="py-5 text-neutral-600 leading-relaxed font-mono">
+                  Git, GitHub, Apache/Nginx, Linux Server Administration,
+                  Postman, Chrome DevTools
+                </td>
+                <td class="py-5 text-ink font-medium">Daily Workflow</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- END: SkillsMatrixSection -->
+    <!-- BEGIN: ContactFooterSection -->
+    <!-- Editorial Contact and Timestamped Footer -->
+    <footer
+      class="py-24 border-t border-borderline bg-ink text-white"
+      data-purpose="contact-footer"
+      id="contact"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-12 space-y-20">
+        <!-- Call to Action Banner -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-8 space-y-4">
+            <span
+              class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase"
+              >[ INITIATION // 04 ]</span
+            >
+            <h2
+              class="text-4xl sm:text-5xl md:text-7xl font-sans font-bold tracking-[-0.04em] leading-[0.95] text-white"
+            >
+              HAVE A PROJECT<br />IN MIND?
+            </h2>
+            <p
+              class="text-[15px] font-sans text-neutral-400 max-w-lg pt-4 leading-[1.7] font-normal"
+            >
+              Open for full-stack engineering contracts, technical SEO audits,
+              and custom system development projects. Let's engineer something
+              meaningful together.
+            </p>
+          </div>
+          <div
+            class="lg:col-span-4 flex flex-col justify-between h-full pt-4 space-y-6"
+          >
+            <div>
+              <span
+                class="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2"
+                >DIRECT COMMUNICATION</span
+              >
+              <div class="flex items-center gap-3">
+                <a
+                  class="text-base sm:text-lg font-mono text-white hover:text-neutral-300 transition-colors underline decoration-neutral-600 underline-offset-4 select-all"
+                  href="mailto:reyhan.alfahrezi@example.com"
+                  id="email-text"
+                  >reyhan.alfahrezi@example.com</a
+                >
+                <button
+                  class="text-xs font-mono uppercase px-3 py-1.5 rounded border border-white/20 hover:border-white/60 transition-colors"
+                  id="copy-btn"
+                  title="Copy Email"
+                >
+                  Copy
+                </button>
+              </div>
+              <span
+                class="text-[10px] font-mono text-emerald-400 mt-1 block opacity-0 transition-opacity duration-300"
+                id="copy-feedback"
+              >
+                COPIED TO CLIPBOARD
+              </span>
+            </div>
+            <div class="pt-4">
+              <a
+                class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-ink text-xs font-mono uppercase tracking-[0.18em] font-medium hover:bg-neutral-200 transition-colors"
+                href="mailto:reyhan.alfahrezi@example.com"
+              >
+                SEND DIRECT DISPATCH <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Editorial Footer Meta Divider -->
+        <div
+          class="pt-12 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-[11px] font-mono tracking-[0.2em] uppercase text-zinc-400"
+        >
+          <div>
+            <span>© 2025 M.REYHAN ALFAHREZI. ALL RIGHTS RESERVED.</span>
+          </div>
+          <!-- Coordinates and Links -->
+          <div class="flex items-center gap-6">
+            <a
+              class="hover:text-white transition-colors"
+              href="https://www.instagram.com/reyh_aaannnn"
+              rel="noopener noreferrer"
+              target="_blank"
+              >INSTAGRAM</a
+            >
+            <a
+              class="hover:text-white transition-colors"
+              href="https://github.com/alfreyhan62"
+              rel="noopener noreferrer"
+              target="_blank"
+              >GITHUB</a
+            >
+            <a
+              class="hover:text-white transition-colors"
+              href="https://www.linkedin.com/in/reyhan-alfahrezi-842446306"
+              rel="noopener noreferrer"
+              target="_blank"
+              >LINKEDIN</a
+            >
+            <span class="text-zinc-600">|</span>
+            <span class="text-zinc-300" id="live-time">JAKARTA 00:00 WIB</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END: ContactFooterSection -->
+    <!-- Interactive Scripts -->
+    <script data-purpose="time-and-copy">
+      // Live Jakarta WIB Time Indicator
+      function updateJakartaTime() {
+        const timeElem = document.getElementById("live-time");
+        if (!timeElem) return;
+
+        const options = {
+          timeZone: "Asia/Jakarta",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        };
+        const jakartaTime = new Intl.DateTimeFormat([], options).format(
+          new Date(),
+        );
+        timeElem.textContent = `JAKARTA ${jakartaTime} WIB`;
+      }
+      setInterval(updateJakartaTime, 1000);
+      updateJakartaTime();
+
+      // Copy to Clipboard Feedback
+      const copyBtn = document.getElementById("copy-btn");
+      const feedback = document.getElementById("copy-feedback");
+      if (copyBtn && feedback) {
+        copyBtn.addEventListener("click", () => {
+          navigator.clipboard
+            .writeText("reyhan.alfahrezi@example.com")
+            .then(() => {
+              feedback.style.opacity = "1";
+              copyBtn.textContent = "COPIED";
+              setTimeout(() => {
+                feedback.style.opacity = "0";
+                copyBtn.textContent = "COPY";
+              }, 2500);
+            });
         });
-      });
-    }
-  </script>
-</body></html>
+      }
+    </script>
+  </body>
+</html>
